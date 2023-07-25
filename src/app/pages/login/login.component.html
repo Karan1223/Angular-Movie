@@ -1,0 +1,41 @@
+<!-- login.component.html -->
+<div class="container">
+    <app-background-image></app-background-image>
+    <div class="content">
+      <app-header></app-header>
+      <div class="form-container flex column a-center j-center">
+        <div class="form flex column a-center j-center">
+          <div class="title">
+            <h3>Login</h3>
+          </div>
+          <div class="container flex column">
+            <input
+              type="email"
+              placeholder="Email Address"
+              name="email"
+              required
+              [(ngModel)]="formValues.email"
+            />
+  
+            <div class="password-input">
+              <input
+                type="{{ showPassword ? 'text' : 'password' }}"
+                placeholder="Password"
+                name="password"
+                required
+                [(ngModel)]="formValues.password"
+              />
+              <span
+                class="password-icon"
+                (click)="handleTogglePassword()"
+              ></span>
+            </div>
+  
+            <button (click)="handleLogIn()">Login</button>
+            <p class="color" *ngIf="errors">{{ errors }}.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

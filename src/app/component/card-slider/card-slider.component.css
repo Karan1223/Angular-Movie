@@ -1,0 +1,29 @@
+/* Add any necessary styles for the CardSlider component */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    padding: 2rem 0;
+  }
+  
+  h1 {
+    margin-left: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .wrapper {
+    margin-top: 1rem;
+  }
+  
+  .slider {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-left: 50px;
+  }
+  
+  /* Add any additional styling as needed for the movie cards */
+  

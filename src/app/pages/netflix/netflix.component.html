@@ -1,0 +1,22 @@
+<!-- netflix.component.html -->
+<div class="container">
+    <app-navbar [isScrolled]="isScrolled"></app-navbar>
+    <div class="hero">
+      <img src="assets/home.jpg" alt="background" class="background-image" />
+      <div class="container-inner">
+        <div class="logo">
+          <img src="assets/homeTitle.webp" alt="Movie Logo" />
+        </div>
+        <div class="buttons flex">
+          <button class="flex j-center a-center" (click)="handlePlayButton()">
+            <fa-icon [icon]="faPlay"></fa-icon> Play
+          </button>
+          <button class="flex j-center a-center">
+            <fa-icon [icon]="faInfoCircle"></fa-icon>More Info
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <app-slider [movies]="movies"></app-slider>  
+  </div>

@@ -1,0 +1,27 @@
+.flex {
+    display: flex;
+  }
+  
+  .a-center {
+    align-items: center;
+  }
+  
+  .j-between {
+    justify-content: space-between;
+  }
+  
+  .logo img {
+    height: 5rem;
+  }
+  
+  button {
+    padding: 8px 12px;
+    background-color: #F5F3F4;
+    border: none;
+    cursor: pointer;
+    color: red;
+    border-radius: 0.2rem;
+    font-weight: bolder;
+    font-size: 15px;
+  }
+  

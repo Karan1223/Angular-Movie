@@ -1,0 +1,62 @@
+.container {
+    position: relative;
+  }
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 15vh 85vh;
+  }
+  .content .body {
+    gap: 1rem;
+  }
+  .content .body .text {
+    gap: 1rem;
+    text-align: center;
+    font-size: 2rem;
+  }
+  .content .body .text h1 {
+    padding: 0 10vw;
+  }
+  .content .body .form {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    width: 60vw;
+  }
+  .content .body .form input {
+    color: black;
+    border: none;
+    padding: 1.5rem;
+    font-size: 1.2rem;
+    border: 1px solid black;
+  }
+  .content .body .form input:focus {
+    outline: none;
+  }
+  .content .body .form button {
+    padding: 0.1rem 0.5rem;
+    background-color: #e50914;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.05rem;
+  }
+  .content button {
+    padding: 8px 12px;
+    background-color: #f5f3f4;
+    border: none;
+    cursor: pointer;
+    color: red;
+    border-radius: 0.2rem;
+    font-weight: bolder;
+    font-size: 15px;
+  }
+  .show-password .form {
+    grid-template-columns: 1fr 1fr;
+  }
+  

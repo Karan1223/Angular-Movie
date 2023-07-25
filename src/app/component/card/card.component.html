@@ -1,0 +1,47 @@
+<div class="card-container">
+    <img src="https://image.tmdb.org/t/p/w500{{ movieData.image }}" alt="movie" />
+    <div class="hover">
+      <div class="image-video-container">
+        <img src="https://image.tmdb.org/t/p/w500{{ movieData.image }}" alt="movie" (click)="handlePlayButtonClick()" />
+      </div>
+      <div class="info-container">
+        <h3 class="name" (click)="handlePlayButtonClick()">{{ movieData.name }}</h3>
+        <div class="icons-container">
+          <div class="controls">
+            <span (click)="handlePlayButtonClick()">
+              <i class="play-icon"></i>
+            </span>
+            <span (click)="addToList()">
+              <i class="like-icon"></i>
+            </span>
+            <span (click)="removeFromLiked()">
+              <i class="dislike-icon"></i>
+            </span>
+            <span *ngIf="isLiked; else addToMyList" (click)="removeFromLiked()">
+              <i class="remove-icon"></i>
+            </span>
+            <ng-template #addToMyList>
+              <span (click)="addToList()">
+                <i class="add-icon"></i>
+              </span>
+            </ng-template>
+          </div>
+          <div class="info">
+            <i class="more-info-icon"></i>
+          </div>
+        </div>
+        <div class="genres">
+          <ul>
+            <li *ngFor="let genre of movieData.genres">{{ genre }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Display the added to list message when addedToList is true -->
+    <p class="success" *ngIf="addedToList">Added to My List</p>
+  
+    <!-- Display the already exists message when alreadyExists is true -->
+    <p class="error" *ngIf="alreadyExists">Already in My List</p>
+  </div>
+  

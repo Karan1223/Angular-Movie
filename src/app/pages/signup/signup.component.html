@@ -1,0 +1,24 @@
+<div class="container" [ngClass]="{ 'show-password': showPassword }">
+    <app-background-image></app-background-image>
+    <div class="content">
+      <app-header></app-header>
+      <div class="body flex column a-center j-center">
+        <div class="text flex column">
+          <h1>Unlimited movies, TV shows and more</h1>
+          <h4>Watch anywhere. Cancel anytime.</h4>
+          <h6>Ready to watch? Enter your email to create or restart membership</h6>
+        </div>
+        <div class="form">
+          <input type="email" placeholder="Email Address" name="email" [(ngModel)]="formValues.email" />
+          <ng-container *ngIf="showPassword">
+            <input type="password" placeholder="Password" name="password" [(ngModel)]="formValues.password" />
+          </ng-container>
+          <ng-container *ngIf="!showPassword">
+            <button (click)="showPassword = true">Get Started</button>
+          </ng-container>
+        </div>
+        <button (click)="handleSignIn()">Sign Up</button>
+      </div>
+    </div>
+  </div>
+  

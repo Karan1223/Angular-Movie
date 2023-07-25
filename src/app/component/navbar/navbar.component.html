@@ -1,0 +1,31 @@
+<!-- navbar.component.html -->
+<nav [ngClass]="{'scrolled': isScrolled}" class="flex">
+    <div class="left flex a-center">
+      <div class="brand a-center j-center">
+        <img src="assets/logo1.jfif" alt="logo" />
+      </div>
+      <ul class="links flex">
+        <li *ngFor="let link of links">
+          <a [routerLink]="link.link">{{ link.name }}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="right flex a-center">
+      <div class="search" [ngClass]="{'show-search': showSearch}">
+        <button (focus)="setShowSearch(true)" (blur)="onSearchBlur()">
+            <fa-icon [icon]="faSearch"></fa-icon>
+        </button>
+        <input
+          type="text"
+          placeholder="search"
+          (mouseenter)="setInputHover(true)"
+          (mouseleave)="setInputHover(false)"
+          (blur)="onSearchBlur()"
+        />
+      </div>
+      <button (click)="signOut()">
+        <fa-icon [icon]="faPowerOff"></fa-icon>
+      </button>
+    </div>
+  </nav>
+  

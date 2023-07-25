@@ -1,0 +1,17 @@
+<div class="container">
+    <app-navbar [isScrolled]="isScrolled"></app-navbar>
+    <div class="content flex column">
+      <h1>My List</h1>
+      <div class="grid flex">
+        <app-card
+          *ngFor="let movie of movies; index as i"
+          [movieData]="movie"
+          [index]="i"
+          [isLiked]="true"
+        ></app-card> 
+        <div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
