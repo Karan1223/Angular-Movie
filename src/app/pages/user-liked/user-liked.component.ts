@@ -9,17 +9,25 @@ import { NetflixService, Movie } from '../../netflix.service'; // Update the pat
 export class UserLikedComponent implements OnInit {
   isScrolled = false;
   movies: Movie[] = [];
+
   constructor(private netflixService: NetflixService) { }
 
   ngOnInit() {
     // Assuming you have access to the user's email in your component
     const userEmail = 'kpkaranpunjabi1223@gmail.com';
-
+    let tempMovieCache: any;
     // Call the service method to get the user's liked movies
     this.netflixService.getUserLikedMovies(userEmail).subscribe(
       (movies) => {
-        this.movies = movies;
-        console.log(this.movies); // Data is available here
+        tempMovieCache = movies;
+        console.log(typeof(tempMovieCache))
+        if(typeof(tempMovieCache) == 'object') {
+          if('movies' in tempMovieCache) {
+            this.movies = tempMovieCache.movies;
+          }
+        }
+        //this.movies = movies;
+        console.log("data", this.movies); // Data is available here
         // Any code that relies on 'this.movies' should be placed here
       },
       (error) => {
@@ -33,3 +41,4 @@ export class UserLikedComponent implements OnInit {
     };
   }
 }
+

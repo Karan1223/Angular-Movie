@@ -16,6 +16,14 @@ interface Genre {
   id: number;
   name: string;
 }
+interface GenreObjectArray {
+  genre: [
+    {
+    id: number,
+    name: string
+  }
+  ]
+}
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +33,7 @@ export class NetflixService {
 
   getGenres(): Observable<Genre[]> {
     const data = this.http.get<Genre[]>(`${TMDB_BASE_URL}/genre/movie/list?api_key=${API_KEY}`);
-    console.log(data)
+    console.log("api data: ", data)
     return data
   }
 
@@ -39,7 +47,7 @@ export class NetflixService {
       tap((movies) => console.log('Movies received:', movies))
     );
   }
-  
+
   fetchDataByGenre(genre: number, type: string): Observable<Movie[]> {
     return this.getGenres().pipe(
       switchMap((genres) =>
@@ -50,7 +58,7 @@ export class NetflixService {
 
   getUserLikedMovies(email: string): Observable<Movie[]> {
     return this.http.get<Movie[]>(`https://backendmovieflix.onrender.com/api/user/liked/${email}`);
-    
+
   }
 
   removeMovieFromLiked(movieId: number, email: string): Observable<Movie[]> {
@@ -60,6 +68,13 @@ export class NetflixService {
   private createArrayFromRawData(array: any[], genres: Genre[]): Movie[] {
     const moviesArray: Movie[] = [];
 
+    let tempGenre: any
+    tempGenre = genres
+    if (typeof(tempGenre) == 'object') {
+      if ('genres'in tempGenre) {
+        genres = tempGenre.genres
+      }
+    }
     array.forEach((movie) => {
       const movieGenres: string[] = [];
       movie.genre_ids.forEach((genre: any) => {
@@ -86,7 +101,7 @@ export class NetflixService {
       const response: any = await this.http
         .get<any[]>(`${api}${paging ? `&page=${i}` : ''}`)
         .toPromise();
-  
+
       // Check if response.results is defined before using it
       if (response && response.results) {
         this.createArrayFromRawData(response.results, genres).forEach((movie) => {
@@ -98,6 +113,6 @@ export class NetflixService {
     }
     return moviesArray;
   }
-  
-  
+
+
 }
