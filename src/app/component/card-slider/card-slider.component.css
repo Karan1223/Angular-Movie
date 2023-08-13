@@ -5,7 +5,7 @@
     gap: 1rem;
     position: relative;
     padding: 2rem 0;
-  }
+}
   
   h1 {
     margin-left: 50px;
@@ -15,15 +15,13 @@
   }
   
   .wrapper {
-    margin-top: 1rem;
-  }
-  
+
   .slider {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     margin-left: 50px;
   }
-  
+  }
   /* Add any additional styling as needed for the movie cards */
   

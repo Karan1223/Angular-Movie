@@ -1,0 +1,3 @@
+<select class="flex select" (change)="fetchDataByGenre($event)">
+  <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
+</select>

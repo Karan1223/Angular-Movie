@@ -22,6 +22,11 @@ import { CardSliderComponent } from './component/card-slider/card-slider.compone
 import { CardComponent } from './component/card/card.component';
 import { TVShowsComponent } from './pages/tvshows/tvshows.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { NotAvailableComponent } from './component/not-available/not-available.component';
+import { SelectGenreComponent } from './component/select-genre/select-genre.component';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +43,9 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     NavbarComponent,
     SliderComponent,
     SignupComponent,
-    TVShowsComponent
+    TVShowsComponent,
+    NotAvailableComponent,
+    SelectGenreComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,9 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [NetflixService],
   bootstrap: [AppComponent]

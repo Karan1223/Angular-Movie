@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, merge, of } from 'rxjs';
-import { switchMap,  filter, take, toArray, mergeMap, tap } from 'rxjs/operators';
-
+import { Observable } from 'rxjs';
+import { switchMap, tap } from 'rxjs/operators';
 import { TMDB_BASE_URL, API_KEY } from './utils/constants';
 
 export interface Movie {
@@ -33,7 +32,6 @@ export class NetflixService {
 
   getGenres(): Observable<Genre[]> {
     const data = this.http.get<Genre[]>(`${TMDB_BASE_URL}/genre/movie/list?api_key=${API_KEY}`);
-    console.log("api data: ", data)
     return data
   }
 

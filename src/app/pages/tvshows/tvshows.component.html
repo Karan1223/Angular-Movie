@@ -1,1 +1,11 @@
-<p>tvshows works!</p>
+<div class="container">
+    <div class="navbar">
+      <app-navbar [isScrolled]="isScrolled"></app-navbar>
+    </div>
+    <div class="data">
+      <app-select-genre [genres]="genres" (moviesSelected)="onMoviesSelected($event)" type="tv"></app-select-genre>
+      <app-slider *ngIf="movies.length > 0" [movies]="movies"></app-slider>
+      <app-not-available *ngIf="movies.length === 0"></app-not-available>
+    </div>
+  </div>
+  

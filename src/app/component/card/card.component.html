@@ -1,47 +1,34 @@
-<div class="card-container">
-    <img src="https://image.tmdb.org/t/p/w500{{ movieData.image }}" alt="movie" />
-    <div class="hover">
-      <div class="image-video-container">
-        <img src="https://image.tmdb.org/t/p/w500{{ movieData.image }}" alt="movie" (click)="handlePlayButtonClick()" />
-      </div>
-      <div class="info-container">
-        <h3 class="name" (click)="handlePlayButtonClick()">{{ movieData.name }}</h3>
-        <div class="icons-container">
-          <div class="controls">
-            <span (click)="handlePlayButtonClick()">
-              <i class="play-icon"></i>
-            </span>
-            <span (click)="addToList()">
-              <i class="like-icon"></i>
-            </span>
-            <span (click)="removeFromLiked()">
-              <i class="dislike-icon"></i>
-            </span>
-            <span *ngIf="isLiked; else addToMyList" (click)="removeFromLiked()">
-              <i class="remove-icon"></i>
-            </span>
-            <ng-template #addToMyList>
-              <span (click)="addToList()">
-                <i class="add-icon"></i>
-              </span>
-            </ng-template>
-          </div>
-          <div class="info">
-            <i class="more-info-icon"></i>
-          </div>
+<div class="container" (mouseenter)="isHovered = true" (mouseleave)="isHovered = false">
+  <img [src]="'https://image.tmdb.org/t/p/w500' + movieData.image" alt="movie" title={{movieData.name}} />
+  <div class="hover" *ngIf="isHovered">
+    <div class="image-video-container">
+      <img [src]="'https://image.tmdb.org/t/p/w500' + movieData.image"  title={{movieData.name}} alt="movie" (click)="handlePlayButtonClick()" />
+    </div>
+    <div class="info-container flex column">
+      <h3 class="name" (click)="handlePlayButtonClick()">{{ movieData.name }}</h3>
+      <div class="icons flex j-between">
+        <div class="controls flex">
+          <mat-icon title="play" (click)="handlePlayButtonClick()">play_circle_outline</mat-icon>
+          <mat-icon title="like">thumb_up</mat-icon>
+          <mat-icon title="dislike">thumb_down</mat-icon>
+          <ng-container *ngIf="isLiked; else notLikedIcon">
+            <mat-icon title="remove-icon" (click)="removeMovieFromLiked()">check</mat-icon>
+          </ng-container>
+          <ng-template #notLikedIcon>
+            <mat-icon title="add-icon" (click)="addToList()">add</mat-icon>
+          </ng-template>
         </div>
-        <div class="genres">
-          <ul>
+        <div class="info">
+          <mat-icon title="more-info">expand_more</mat-icon>
+        </div>
+        <div class="genres flex">
+          <ul class="flex">
             <li *ngFor="let genre of movieData.genres">{{ genre }}</li>
           </ul>
         </div>
       </div>
     </div>
-  
-    <!-- Display the added to list message when addedToList is true -->
-    <p class="success" *ngIf="addedToList">Added to My List</p>
-  
-    <!-- Display the already exists message when alreadyExists is true -->
-    <p class="error" *ngIf="alreadyExists">Already in My List</p>
   </div>
-  
+  <p class="success" *ngIf="addedToList">Added to My List</p>
+  <p class="error" *ngIf="alreadyExists">Already in My List</p>
+</div>
