@@ -1,7 +1,7 @@
 
-# MoviFlix
+# MovieFlix
 
-MoviFlix is a movie streaming application built with Angular. The app provides an interface where users can watch their favorite movies, add them to a favorites list, search by category, and more. This project uses the TMDB API for movie listings, MongoDB for the database, and Node.js for the backend. MoviFlix also includes a player that allows users to watch trailers.
+MovieFlix is a movie streaming application built with Angular. The app provides an interface where users can watch their favorite movies, add them to a favorites list, search by category, and more. This project uses the TMDB API for movie listings, MongoDB for the database, and Node.js for the backend. MovieFlix also includes a player that allows users to watch trailers.
 
 ## Features
 
@@ -19,7 +19,7 @@ MoviFlix is a movie streaming application built with Angular. The app provides a
 ### Amritha Sodhi
 ## Installation
 
-To install and run MoviFlix on your local machine, follow these steps:
+To install and run MovieFlix on your local machine, follow these steps:
 
 1. Clone the repository:
    ```bash
