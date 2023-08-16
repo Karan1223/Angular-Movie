@@ -14,9 +14,13 @@ MovieFlix is a movie streaming application built with Angular. The app provides 
 
 ## Contribution
 ### Richu Thankachan
+ - Add to my list
 ### Remya Raj
+  - Search by category
 ### Karan Punjabi
+  - Video Player
 ### Amritha Sodhi
+ - Login and Signup
 ## Installation
 
 To install and run MovieFlix on your local machine, follow these steps:
