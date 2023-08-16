@@ -25,10 +25,11 @@
                 required
                 [(ngModel)]="formValues.password"
               />
-              <span
-                class="password-icon"
-                (click)="handleTogglePassword()"
-              ></span>
+              <span class="password-icon" (click)="handleTogglePassword()">
+                <mat-icon>
+                  {{ showPassword ? 'visibility' : 'visibility_off' }}
+                </mat-icon>
+              </span>
             </div>
   
             <button (click)="handleLogIn()">Login</button>

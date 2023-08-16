@@ -78,6 +78,8 @@ router1 = new Router();
       { name: 'Secret Invasion', id: 'Tp_YZNqNBhw' },
       { name: 'The Witcher', id: 'SzS8Ao0H6Co' },
       { name: 'The Flash', id: 'jprhe-cWKGs' },
+      { name: 'Barbie', id: 'pBk4NYhWNMM'},
+      { name: 'Oppenheimer', id: 'uYPbbksJxIg'},
       // Add more movie names and IDs as needed
     ];
     const movie = movieNameIdArray.find((movie) => movie.name === name);
